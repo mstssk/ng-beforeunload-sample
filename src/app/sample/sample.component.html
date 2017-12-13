@@ -1,0 +1,12 @@
+<h1>AngularでbeforeunloadとCanDeactivateを制御するサンプル</h1>
+
+<p><code>input</code>に入力があるとページ離脱チェックを行います。</p>
+<p>Routerの画面遷移はCanDeactivateで制御し、別サイトへの画面遷移やブラウザを閉じる際はbeforeunloadイベントをハンドリングします。</p>
+
+<form>
+  <input [(ngModel)]="data" type="text" name="data">
+  <input type="text" name="disableSubmitOnEnter" disabled style="display:none;">
+</form>
+
+<p><a routerLink="/">Go to TOP</a></p>
+<p><a href="https://angular.io/">Angular.ioへ</a></p>
