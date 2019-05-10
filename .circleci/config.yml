@@ -2,18 +2,18 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8-browsers
+      - image: circleci/node:10-browsers
     steps:
       - checkout
       - run: node -v && npm -v
       - restore_cache:
           keys:
             - npm-cache-{{ checksum "package-lock.json" }}
-      - run: npm install
+      - run: npm ci
       - save_cache:
           key: npm-cache-{{ checksum "package-lock.json" }}
           paths:
-            - ./node_modules
+            - ~/.npm
       - run: npm run lint
       - run: npm test
       # - run: npm run e2e
