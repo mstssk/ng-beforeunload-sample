@@ -19,4 +19,4 @@ jobs:
       # - run: npm run e2e
       - run: npm run build
       - deploy:
-          command: if [ `git symbolic-ref --short HEAD` = "master" ]; then npm run deploy:ci; fi
+          command: if [ "$CIRCLE_BRANCH" = "master" ]; then npm run deploy:ci; fi
